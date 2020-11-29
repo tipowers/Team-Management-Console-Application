@@ -30,7 +30,8 @@ namespace DevTeamsProject
             if (oldContent != null)
             {
                 oldContent.DeveloperId = newContent.DeveloperId;
-                oldContent.DeveloperName = newContent.DeveloperName;
+                oldContent.DeveloperFirstName = newContent.DeveloperFirstName;
+                oldContent.DeveloperLastName = newContent.DeveloperLastName;
                 oldContent.HasAccess = newContent.HasAccess;
 
                 return true;
@@ -75,5 +76,17 @@ namespace DevTeamsProject
             }
             return null;
         }
+
+        /*public Developer UserAccess(bool access)
+        {
+            foreach (Developer info in _developerDirectory)
+            {
+                if(info.HasAccess == access)
+                {
+                    return info;
+                }
+            }
+            return null;
+        }*/
     }
 }

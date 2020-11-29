@@ -16,6 +16,11 @@ namespace DevTeamsProject
             _devTeams.Add(content);
         }
 
+        /*public void AddUserToTeamList(Developer content)
+        {
+            _devTeams.Add(content);
+        }*/
+
         //DevTeam Read
         public List<DevTeam> GetTeamList()
         {

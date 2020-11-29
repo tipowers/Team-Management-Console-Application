@@ -9,15 +9,17 @@ namespace DevTeamsProject
     public class Developer
     {
         public int DeveloperId { get; set; }
-        public string DeveloperName { get; set; }
+        public string DeveloperFirstName { get; set; }
+        public string DeveloperLastName { get; set; }
         public bool HasAccess { get; set; }
 
         public Developer() { }
 
-        public Developer(int developerId, string developerName, bool hasAccess)
+        public Developer(int developerId, string developerFirstName, string developerLastName, bool hasAccess)
         {
             DeveloperId = developerId;
-            DeveloperName = developerName;
+            DeveloperFirstName = developerFirstName;
+            DeveloperLastName = developerLastName;
             HasAccess = hasAccess;
         }
     }
