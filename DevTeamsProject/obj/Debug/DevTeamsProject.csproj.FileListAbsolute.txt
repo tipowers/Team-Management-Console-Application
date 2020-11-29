@@ -1,0 +1,6 @@
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\bin\Debug\DevTeamsProject.dll
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\bin\Debug\DevTeamsProject.pdb
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\obj\Debug\DevTeamsProject.csprojAssemblyReference.cache
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\obj\Debug\DevTeamsProject.csproj.CoreCompileInputs.cache
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\obj\Debug\DevTeamsProject.dll
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsProject\obj\Debug\DevTeamsProject.pdb

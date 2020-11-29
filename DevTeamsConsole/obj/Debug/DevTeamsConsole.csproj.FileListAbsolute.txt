@@ -1,0 +1,10 @@
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\bin\Debug\DevTeamsConsole.exe.config
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\bin\Debug\DevTeamsConsole.exe
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\bin\Debug\DevTeamsConsole.pdb
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\bin\Debug\DevTeamsProject.dll
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\bin\Debug\DevTeamsProject.pdb
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\obj\Debug\DevTeamsConsole.csprojAssemblyReference.cache
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\obj\Debug\DevTeamsConsole.csproj.CoreCompileInputs.cache
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\obj\Debug\DevTeamsConsole.csproj.CopyComplete
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\obj\Debug\DevTeamsConsole.exe
+C:\Users\tpowe\Desktop\d3V\ElevenFiftyProjects\DotNetProjects\DevTeamsProject\DevTeamsConsole\obj\Debug\DevTeamsConsole.pdb
