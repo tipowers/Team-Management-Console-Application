@@ -11,6 +11,7 @@ namespace DevTeamsConsole
     {
         private readonly DevTeamRepo _devTeams = new DevTeamRepo();
         private readonly DeveloperRepo _developerRepo = new DeveloperRepo();
+
         public void Run()
         {
             SeedContentList();
@@ -99,8 +100,17 @@ namespace DevTeamsConsole
 
             foreach (DevTeam teamContent in listOfTeams)
             {
-                Console.WriteLine($"Team Id: { teamContent.TeamId}\n" +
+                Console.WriteLine($"\nTeam Id: {teamContent.TeamId}\n" +
                     $"Team Name: {teamContent.TeamName}\n");
+
+                foreach (Developer memberContent in teamContent.DeveloperList)
+                {
+                    Console.WriteLine($"Team Member Details:\n" +
+                        $"Developer Id: {memberContent.DeveloperId}\n" +
+                        $"First Name: {memberContent.DeveloperFirstName}\n" +
+                        $"Last Name: {memberContent.DeveloperLastName}\n" +
+                        $"Pluralsight Access: {memberContent.HasAccess}\n");
+                }
             }
         }
 
@@ -126,14 +136,23 @@ namespace DevTeamsConsole
             string idAsString = Console.ReadLine();
             int idAsInt = int.Parse(idAsString);
 
-            DevTeam content = _devTeams.GetTeamListById(idAsInt);
+            DevTeam teamContent = _devTeams.GetTeamListById(idAsInt);
 
             Console.Clear();
 
-            if (content != null)
+            if (teamContent != null)
             {
-                Console.WriteLine($"Team Id: {content.TeamId}\n" +
-                    $"Team Name: {content.TeamName}\n");
+                Console.WriteLine($"\nTeam Id: {teamContent.TeamId}\n" +
+                    $"Team Name: {teamContent.TeamName}\n");
+
+                foreach (Developer memberContent in teamContent.DeveloperList)
+                {
+                    Console.WriteLine($"Team Member Details:\n" +
+                        $"Developer Id: {memberContent.DeveloperId}\n" +
+                        $"First Name: {memberContent.DeveloperFirstName}\n" +
+                        $"Last Name: {memberContent.DeveloperLastName}\n" +
+                        $"Pluralsight Access: {memberContent.HasAccess}\n");
+                }
             }
             else
             {
@@ -157,7 +176,7 @@ namespace DevTeamsConsole
             if (memberContent != null)
             {
                 Console.WriteLine($"Team Member Details:\n" +
-                    $"\nDeveloper Id: { memberContent.DeveloperId}\n" +
+                    $"\nDeveloper Id: {memberContent.DeveloperId}\n" +
                     $"First Name: {memberContent.DeveloperFirstName}\n" +
                     $"Last Name: {memberContent.DeveloperLastName}\n" +
                     $"Pluralsight Access: {memberContent.HasAccess}\n");
@@ -316,28 +335,32 @@ namespace DevTeamsConsole
 
         private void PluralsightReport()
         {
-            
-        }
-
-        private void ReturnToMainMenu()
-        {
             Console.Clear();
-            PrimaryMenu();
+            List<Developer> developerList = _developerRepo.GetUserList();
+
+            Console.WriteLine("Team Members WITH Pluralsight:");
+            foreach (Developer teamMemberAccess in developerList)
+            {
+                if (teamMemberAccess.HasAccess == true)
+                {
+                    Console.WriteLine($"\nDeveloper Id: {teamMemberAccess.DeveloperId}\n" +
+                        $"Full Name: {teamMemberAccess.DeveloperFirstName} {teamMemberAccess.DeveloperLastName}\n");
+                }
+            }
+
+            Console.WriteLine($"\n\nTeam Members WITHOUT Pluralsight:");
+            foreach (Developer teamMemberAccess in developerList)
+            {
+                if (teamMemberAccess.HasAccess != true)
+                {
+                    Console.WriteLine($"\nDeveloper Id: {teamMemberAccess.DeveloperId}\n" +
+                        $"Full Name: {teamMemberAccess.DeveloperFirstName} {teamMemberAccess.DeveloperLastName}");
+                }
+            }
         }
 
         private void SeedContentList()
         {
-            DevTeam testOne = new DevTeam(1, "MMPR");
-            DevTeam testTwo = new DevTeam(2, "Zeo");
-            DevTeam testThree = new DevTeam(3, "Turbo");
-
-            /*DevTeam testOne = new DevTeam(1, "MMPR", _developerRepo.GetUserList());
-            DevTeam testTwo = new DevTeam(2, "Zeo", _developerRepo.GetUserList());
-            DevTeam testThree = new DevTeam(3, "Turbo", _developerRepo.GetUserList());*/
-
-            _devTeams.AddTeamToList(testOne);
-            _devTeams.AddTeamToList(testTwo);
-            _devTeams.AddTeamToList(testThree);
 
             Developer devOne = new Developer(1, "Tommy", "Oliver", true);
             Developer devTwo = new Developer(2, "Kimberly", "Hart", false);
@@ -352,6 +375,14 @@ namespace DevTeamsConsole
             _developerRepo.AddUserToList(devFour);
             _developerRepo.AddUserToList(devFive);
             _developerRepo.AddUserToList(devSix);
+
+            DevTeam testOne = new DevTeam(1, "MMPR", new List<Developer>() { devOne, devTwo });
+            DevTeam testTwo = new DevTeam(2, "Zeo", new List<Developer>() { devThree, devFour });
+            DevTeam testThree = new DevTeam(3, "Turbo", new List<Developer>() { devFive, devSix });
+
+            _devTeams.AddTeamToList(testOne);
+            _devTeams.AddTeamToList(testTwo);
+            _devTeams.AddTeamToList(testThree);
         }
     }
 }

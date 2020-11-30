@@ -10,24 +10,15 @@ namespace DevTeamsProject
     {
         public int TeamId { get; set; }
         public string TeamName { get; set; }
-
-        /*public List<Developer> _developerDirectory { get; set; }
-
-        public List<Developer> _developerDirectory = new List<Developer>();*/
+        public List<Developer> DeveloperList { get; set; } = new List<Developer>();
 
         public DevTeam() { }
 
-        public DevTeam(int teamId, string teamName)
+        public DevTeam(int teamId, string teamName, List<Developer> developerList)
         {
             TeamId = teamId;
             TeamName = teamName;
+            DeveloperList = developerList;
         }
-
-        /*public DevTeam(int teamId, string teamName, List<Developer> devList)
-        {
-            TeamId = teamId;
-            TeamName = teamName;
-            _developerDirectory = devList;
-        }*/
     }
 }
