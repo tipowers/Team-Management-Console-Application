@@ -22,15 +22,19 @@ namespace DevTeamsConsole
             bool keepRunning = true;
             while (keepRunning)
             {
-                Console.WriteLine("Select a menu option:\n" +
+                Console.WriteLine("Select a menu option:\n\n" +
                     "1. View All Teams\n" +
                     "2. View Team By Id\n" +
                     "3. Create New Team\n" +
                     "4. Update Existing Team\n" +
-                    "5. Delete Existing Team\n" +
+                    "5. Delete Existing Team\n\n" +
                     "6. View All Team Members\n" +
                     "7. View Team Member By Id\n" +
-                    "8. Exit");
+                    "8. Create New Team Member\n" +
+                    "9. Update Existing Team Member\n" +
+                    "10. Delete Existing Team Member\n\n" +
+                    "11. Pluralsight Report\n\n" +
+                    "0. Exit");
 
                 string input = Console.ReadLine();
 
@@ -38,42 +42,46 @@ namespace DevTeamsConsole
                 {
                     case "1":
                         DisplayAllTeams();
-                        SecondaryMenu();
                         break;
                     case "2":
                         DisplayTeamsById();
-                        Continue();
                         break;
                     case "3":
                         CreateNewTeam();
-                        Continue();
                         break;
                     case "4":
                         UpdateExistingTeam();
-                        Continue();
                         break;
                     case "5":
                         DeleteExistingTeam();
-                        Continue();
                         break;
                     case "6":
                         DisplayAllTeamMembers();
-                        SecondaryMenu();
                         break;
                     case "7":
                         DisplayTeamMemberById();
-                        SecondaryMenu();
                         break;
                     case "8":
+                        CreateNewTeamMember();
+                        break;
+                    case "9":
+                        UpdateExistingTeamMember();
+                        break;
+                    case "10":
+                        DeleteExistingTeamMember();
+                        break;
+                    case "11":
+                        PluralsightReport();
+                        break;
+                    case "0":
                         Console.WriteLine("\nTake care now. Bye bye then!");
                         keepRunning = false;
-                        Continue();
                         break;
                     default:
                         Console.WriteLine("Please enter a valid number.");
-                        Continue();
                         break;
                 }
+                Continue();
             }
         }
 
@@ -82,44 +90,6 @@ namespace DevTeamsConsole
             Console.WriteLine("\nPlease press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-        }
-
-        public void SecondaryMenu()
-        {
-            Console.WriteLine("Select a menu option:\n" +
-                "1. View Team Member By Id\n" +
-                "2. View Pluralsight Status\n" +
-                "3. Create New Team Member\n" +
-                "4. Update Existing Team Member\n" +
-                "5. Delete Existing Team Member\n" +
-                "6. Return To Main Menu\n");
-
-            string input = Console.ReadLine();
-
-            switch (input)
-            {
-                case "1":
-                    DisplayTeamMemberById();
-                    break;
-                case "2":
-
-                case "3":
-                    CreateNewTeamMember();
-                    break;
-                case "4":
-                    UpdateExistingTeamMember();
-                    break;
-                case "5":
-                    DeleteExistingTeamMember();
-                    break;
-                case "6":
-                    ReturnToMainMenu();
-                    break;
-                default:
-                    Console.WriteLine("Please enter a valid number.");
-                    break;
-            }
-            Continue();
         }
 
         private void DisplayAllTeams()
@@ -167,7 +137,7 @@ namespace DevTeamsConsole
             }
             else
             {
-                Console.WriteLine("No team by that Id.");
+                Console.WriteLine("No team by that Id.\n");
             }
         }
 
@@ -206,7 +176,7 @@ namespace DevTeamsConsole
             Console.WriteLine("Enter the new Team Name:");
             newContent.TeamName = Console.ReadLine();
 
-            Console.WriteLine("Enter the new Team Id:");
+            Console.WriteLine("\nEnter the new Team Id:");
             string teamIdAsString = Console.ReadLine();
             int teamIdAsInt = int.Parse(teamIdAsString);
             newContent.TeamId = teamIdAsInt;
@@ -251,7 +221,7 @@ namespace DevTeamsConsole
             Console.WriteLine("\nEnter the new Team Name:");
             newContent.TeamName = Console.ReadLine();
 
-            Console.WriteLine("Enter the new Team Id:");
+            Console.WriteLine("\nEnter the new Team Id:");
             string teamIdAsString = Console.ReadLine();
             int teamIdAsInt = int.Parse(teamIdAsString);
             newContent.TeamId = teamIdAsInt;
@@ -271,19 +241,24 @@ namespace DevTeamsConsole
         {
             DisplayAllTeamMembers();
 
+            Console.WriteLine("Enter the team member Id to update:");
+            string oldidAsString = Console.ReadLine();
+            int oldIdAsInt = int.Parse(oldidAsString);
+
             Developer newMemberContent = new Developer();
 
-            Console.WriteLine("Enter the team member's new Id:");
-            string idAsString = Console.ReadLine();
-            int oldIdAsInt = int.Parse(idAsString);
+            Console.WriteLine("\nEnter the team member's new Id:");
+            string newIdAsString = Console.ReadLine();
+            int newIdAsInt = int.Parse(newIdAsString);
+            newMemberContent.DeveloperId = newIdAsInt;
 
-            Console.WriteLine("Enter the team member's new first name:");
+            Console.WriteLine("\nEnter the team member's new first name:");
             newMemberContent.DeveloperFirstName = Console.ReadLine();
 
-            Console.WriteLine("Enter the team member's new last name:");
+            Console.WriteLine("\nEnter the team member's new last name:");
             newMemberContent.DeveloperLastName = Console.ReadLine();
 
-            Console.WriteLine("Enter the member's new Pluralsight status: ('true' for yes and 'false' for no)");
+            Console.WriteLine("\nEnter the member's new Pluralsight status: ('true' for yes and 'false' for no)");
             string boolAsString = Console.ReadLine();
             bool boolAsBool = bool.Parse(boolAsString);
             newMemberContent.HasAccess = boolAsBool;
@@ -337,6 +312,11 @@ namespace DevTeamsConsole
             {
                 Console.WriteLine("\nCould not delete team member.");
             }
+        }
+
+        private void PluralsightReport()
+        {
+            
         }
 
         private void ReturnToMainMenu()
